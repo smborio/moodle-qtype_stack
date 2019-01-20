@@ -31,7 +31,7 @@ The "Extra options" field on the input must be a comma separated list of the fol
 
 You cannot specify both decimal places and significant figures (even if they are min for one and max for the other).
 
-If `mindp=maxdp=n` or `minsf=maxsf=n` then a student will be told to type in exactly `n` places/figures.
+If `mindp=maxdp:n` or `minsf=maxsf:n` then a student will be told to type in exactly `n` places/figures.
 
 Note, where there is ambiguity in the number of significant figures (e.g. does 100 have 1 or 3 significant figures?) then the student will be given the benefit of the doubt.
 
