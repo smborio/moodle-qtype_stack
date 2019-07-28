@@ -37,7 +37,7 @@ The variable `ta` is a list containing each step we are expecting our students t
 Notes:
 
 * We use the CAS functions `expand()` and `ev(...,simp)` to simply the output of `expand()`, to determine the model answer. 
-* The special function `stackeq` is replaced by unary equals.  Maxima expects equality to be an infix \(a=b\) not unary prefix \(=b\), so STACK needs this special operator.  Students using the input area can just start a line with \(=\), but teachers cannot!
+* The special function `stackeq` is replaced by unary equals.  Maxima expects equality to be an infix \(a=b\) not unary prefix \(=b\) (this can be a bit technical for some authors), so STACK needs this special operator.  Students using the input area can just start a line with \(=\), but teachers cannot!
 
 In this context the teacher's answer and the student's answer is a list.  The whole answer is a single object, which we assess.
 
@@ -52,7 +52,7 @@ Expand {@p@}, remembering to show your working.
 
 Under the `Input:ans1` header specify _Equivalence reasoning_ from the Input type drop-down and `ta` as the model answer.
 
-We want students to work through the expansion one line at a time, so let's include a hint. Copy the following into the Syntax hint box:
+We want students to work through the expansion one line at a time, so let's include a hint. Copy the following into the Syntax hint box, within the `Input:ans1` header:
 
     [(x+2)^3,stackeq(?)]
 
@@ -61,7 +61,7 @@ This is a list, and uses `stackeq`.
 For students in this context, it is probably sensible to "insert stars" and provide the most forgiving input syntax available, but that is optional.
 
 We need to tell STACK to compare the first line of the student's working to the first line of the question. This makes sure the student "answers the right question".
-Type `firstline` into the Extra options box.
+Type `firstline` into the Extra options box within the `Input:ans1` header.
 This ensures a student's response will be invalid if they don't have the correct first line.
 
 ### Setting the potential response tree ###
@@ -73,11 +73,13 @@ As a minimal potential response tree have one node, with
     answer test = EquivFirst
     Auto-simplify = no
 
-Note, the `Auto-simplify` field is not in the node of the PRT, but a PRT option.
+(change order to have answer test first)
 
-### Setting the question options ###
+Note, the `Auto-simplify` field is not in the node of the PRT, but a PRT option. (I would out this as Test options: Auto-simplify = no)
 
-Set question level options
+### Setting the question options ### (this is redundant if you are mentioning it above. When I read through I went to the options section and looked for a place to put this and didn't find one. I suspect new authors might get confused here.)
+
+Set question level options 
 
     Auto-simplify = no
 
@@ -104,7 +106,7 @@ Node 2 should be set up as
     SAns = last(ans1)
     TAns = last(ta)
     answer test = EqualComAss
-    Auto-simplify = no
+    Auto-simplify = no (same point as above here.)
 
 This node adds in feedback to check the student has reached the right place.
 
@@ -132,3 +134,7 @@ At this stage there are few in-built features within STACK.  A lot is possible, 
 
 This feature will be developed by use over the next few years.
 If you have experience, and views, on how this should work please contact the developers.
+
+(Important comment: Typing in the final answer directly marks the answer as correct, which is a problem I came up with previously and makes the multi-line question pointless. Please see our Calculus I course, Week 7, Mastery Quiz, Question 1. I had a rather complicated PRT to check that at least one intermediate step appears in the ans1 list. I think that this could be easily implemented as a test option, checking that any number of elements in TAns appear as a minimum in the list SAns, but this goes beyond me for the time being. Perhaps this could be mentioned as a possible add on to the developers.)
+
+
