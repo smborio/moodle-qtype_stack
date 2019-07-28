@@ -204,3 +204,6 @@ In the second test you might as well leave the test as is.
 
 The next part of the authoring quick start guide looks at [turning simplification off](Authoring_quick_start_3.md).
 
+(Two more comments: 
+1. Is there a screen cast for this section as well?
+2. You have two examples at the start of the section but only one is developed. I think it would be very useful to develop both.)
