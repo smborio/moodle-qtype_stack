@@ -35,10 +35,8 @@ You must give the question a name, for example `question1`.
 
 Let's focus on the problem of differentiating \((x-1)^3\) with respect to \(x\). We need to write the question text itself. Copy the following into the Question text box:
 
-<textarea readonly="readonly" rows="2" cols="50">
 Differentiate \((x-1)^3\) with respect to x.
 [[input:ans1]] [[validation:ans1]]
-</textarea>
 
 Notes:
 
@@ -74,7 +72,7 @@ By default, a new question contains one [potential response tree](Potential_resp
 
 ### Configuring a potential response node
 
-A potential response tree is a non-empty acyclic directed graph of _potential response nodes_.  By default, we have one potential response node. At each node
+A potential response tree is a non-empty acyclic directed graph (see comment 4 in my comments below) of _potential response nodes_.  By default, we have one potential response node. At each node
 
 1. `SAns` is compared to `TAns` with the answer test, possibly with an option,
 2. If `true`, then we execute the `true` branch,
@@ -108,11 +106,11 @@ To recap, we have
 
 Next we should try out our question by pressing the `Preview` link at the bottom of the page.
 
-![Preview button](%CONTENT/preview_button.png)
+![Preview button](%CONTENT/preview_button.png) (see comment 3 in my comments below)
 
 ## Previewing the question
 
-To speed up the testing process, scroll down on the preview window and under Attempt options make sure you have "How questions behave" set to "Adaptive Mode". If necessary, "Start again with these options". This will allow you to check your answers without having to _Submit_ and _Start again_ repeatedly.
+To speed up the testing process, scroll down on the preview window and under Attempt options make sure you have "How questions behave" set to "Adaptive Mode". If necessary, "Start again with these options". This will allow you to check your answers without having to _Submit_ and _Start again_ repeatedly. (See comment 2 in my comments below)
 
 With the preview open, try typing
 
