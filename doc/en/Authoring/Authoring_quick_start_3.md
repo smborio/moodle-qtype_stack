@@ -6,7 +6,7 @@ This is the third part of the [authoring quick start](Authoring_quick_start.md).
 
 Given a complex number \(z=ae^{ib}\) determine \(|z^{n}|\) and \(\arg(z^{n})\).
 
-Where \(a\), \(b\) and \(n\) are randomly generated numbers.
+Where \(a\), \(b\) and \(n\) are randomly generated numbers. (I would have a section between parts 2 and 3 on randomisation of questions, isolating it as a learning objective for authors, removing all randmisation from section 2.)
 
 ## Simplification off ##
 
@@ -33,6 +33,7 @@ Solving problems at the level of the CAS, not at the level of the display, is of
 This does have some drawbacks.  Having switched off all simplification, we now need to turn it back on selectively! To do this, we use Maxima commands such as the following.
 
     a : ev(2+rand(15),simp);
+(Here I would note that not doing so, the variable a would appear as "2+5" if 5 is the outcome of the random generation to emphasise th need to simplify. It took me some time to work this out properly when I first turned simplification off!)
 
 In particular, we are going to define the question variables as follows.
 
@@ -99,7 +100,9 @@ Hence, for `prt1` fill in the following information
     TAns:a^n
     answertest:AlgEquiv
 
-If you really want to test for the integer, you need to calculate `ev(a^n,simp)` and then use the `EqualComAss` test to establish the student has the right integer.
+(Here the order is not the same as they appear in the PRT form. I would start with the answer test.)
+
+If you really want to test for the integer, you need to calculate `ev(a^n,simp)` and then use the `EqualComAss` test to establish the student has the right integer. (I would add a link to the answer test description for this test as authors might do it mechanically with no understandin otherwise.)
 
 For `prt2` we need to establish the student has the right argument.  Since this is modulo \(2\pi\) we can use the trigonometrical functions.  Fill in the following information
 
@@ -108,9 +111,11 @@ For `prt2` we need to establish the student has the right argument.  Since this 
     answertest:AlgEquiv
     quiet:yes
 
+(same as above, I would change the order.)
+
 The `AlgEquiv` test is happy to compare lists, but it makes no sense to tell the student which list element is "incorrect". Indeed, to do so would be confusing so we have selected the `quiet` option to suppress the automatically generated answer test feedback.
 
-Again, if you want to enforce a test for the principle argument you will need to check the student's value also falls within the correct range using the `NUM-GTE` tests to establish "greater or equal to".  This can be done by adding an additional node.  It is probably a sensible idea to give feedback on both properties here.  The variable `p` in the question variables will help with this.
+Again, if you want to enforce a test for the principle (I might be wronge here but I think it's principal, not principle) argument you will need to check the student's value also falls within the correct range using the `NUM-GTE` tests to establish "greater or equal to".  This can be done by adding an additional node.  It is probably a sensible idea to give feedback on both properties here.  The variable `p` in the question variables will help with this. (how so?)
 
 ## Question tests ##
 
@@ -139,3 +144,5 @@ Further examples are give in the page on [matrices](../CAS/Matrix.md).
 The XML of this question is included with the [sample questions](Sample_questions.md).  Please look at the other [sample questions](Sample_questions.md) which are distributed with STACK for more examples.
 
 The next part of the authoring quick start guide looks at [equivalence reasoning](Authoring_quick_start_4.md).
+
+(Is there a screen cast for this section?)
