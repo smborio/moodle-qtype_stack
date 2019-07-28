@@ -11,7 +11,7 @@ Find the equation of the line tangent to \(x^3-2x^2+x\) at the point \(x=2\).
 3. Hence, find the equation of the tangent line. \(y=...\)
 
 Since all three parts refer to one polynomial, if randomly generated questions are being used then each
-of these parts needs to reference a single randomly generated equation. Hence parts 1.-3. really form
+of these parts needs to reference a single randomly generated equation. (I would not mention randomisation at this stage as it has not been discussed at all yet) Hence parts 1.-3. really form
 one item.  Notice here that part 1. is independent of the others. Part 2. requires both the first and second inputs.
 Part 3. could easily be marked independently, or take into account parts 1 & 2. Notice also that the teacher may
 choose to award "follow on" marking.
@@ -32,7 +32,7 @@ Furthermore, it is likely that the teacher will want the student to complete all
 before any feedback is assigned, even if separate feedback is generated for each input
 (i.e. coefficient). This feedback should all be grouped in one place on the screen. Furthermore,
 in order to identify the possible causes of algebraic mistakes, an automatic marking procedure
-will require all coefficient simultaneously. It is not satisfactory to have three totally
+will require all coefficients simultaneously. It is not satisfactory to have three totally
 independent marking procedures.
 
 These two examples illustrate two extreme positions.
@@ -46,7 +46,7 @@ However, it is more common to have multi-part questions which are between these 
 ### Response processing ###
 
 Response processing is the means by which a student's answer is evaluated and feedback, of various forms,
-assigned. The crucial observation in STACK is a complete separation between two important components.
+assigned. The crucial observation in STACK is a complete separation between two important components:
 
 1. a list of [inputs](Inputs.md);
 2. a list of [potential response trees](Potential_response_trees.md).
@@ -54,7 +54,7 @@ assigned. The crucial observation in STACK is a complete separation between two 
 ## [Inputs](Inputs.md) ##
 
 The [question text](CASText.md#question_text), i.e. the text actually displayed to the student, may have an arbitrary number of [inputs](Inputs.md). An element may be positioned
-anywhere within the question text, including within mathematical expressions, e.g. equations (_note_: MathJax currently does not support form elements within equations).
+anywhere within the question text, including within mathematical expressions, e.g. equations (_note_: MathJax currently does not support form elements within equations). (I don't think the note here adds any value and new authors won't know what you are talking about, what is MathJax for exaple?)
 Each input will be associated with a number of fields. For example
 
 1. The name of a CAS variable to which the student's answer (if any) is assigned during response processing.
@@ -64,6 +64,7 @@ Each input will be associated with a number of fields. For example
   2. graphical input tool, e.g. a slider.
   3. True/False selection.
 3. The teacher's correct answer.
+(The numbering is viewed horribly in github, I'm not sure it's the same for the website. I would if possible change it to 1. 2. a. b. c. 3. )
 
 ## [Potential response trees](Potential_response_trees.md) ##
 
@@ -106,7 +107,7 @@ __Question variables:__
 
 __Question text__
 
-This text should be copied into the editor in HTML mode.
+This text should be copied into the editor in HTML mode. (Why HTML mode here? In the github viewer this does not appear as HTML text but normal text and when you copy and paste it into HTML mode it doesn't look as expected)
 
 <textarea readonly="readonly" rows="5" cols="120">
 <p>Find the equation of the line tangent to {@p@} at the point \(x={@pt@}\).</p>
@@ -118,7 +119,7 @@ This text should be copied into the editor in HTML mode.
 Fill in the answer for `ans1` (which exists by default) and remove the `feedback` tag from the "specific feedback" section.  We choose to embed feedback within parts of this question.
 Notice there is one potential response tree for each "part".
 
-Update the form and then ensure the Model Answers are filled in as `ta1`, `ta2` and `ta3`.
+Update the form and then ensure the Model Answers are filled in as `ta1`, `ta2` and `ta3`. (for the first time a user is doing a multi part question, I think the "verify question text and update form" button needs more emphasys. Also, I would say Modal Answers in the Input section or something like that for further clarity.)
 
 STACK has created the three potential response trees by detecting the feedback tags automatically.  Next we need to edit potential response trees.  These will establish the properties of the student's answers.
 
@@ -144,15 +145,16 @@ Next, add a single node (to `prt2`), and ensure this node establishes that
 
 We now link the true branch of node 1 to node 2 (of `prt2`).  We now have three outcomes.
 
-Node 1: did they evaluate the expression in part 1 correctly? If "yes" then go to node 2, else if "no" then exit with no marks.
+Node 1: did they evaluate their expression in part 1 correctly? If "yes" then go to node 2, else if "no" then exit with no marks.
 
 Node 2: did they get part 1 correct?  if "yes" then this is the ideal situation, full marks.  If "no" then choose marks, as suit your taste in this situation, and add some feedback such as the following in Node 2, false feedback.
 
 <textarea readonly="readonly" rows="5" cols="120">
-Your answer to this part is correct, however you have got part 1 wrong!  Please try both parts again!
+Your answer to this part is correct (It's not correct, it follows your answer from part 1 correctly), however you have got part 1 wrong!  Please try both parts again!
 </textarea>
+(This looks funny in the github veiwer as well, I don't know what happens when in the website)
 
-###Stage 3: adding question tests###
+###Stage 3: adding question tests### (I didn't understand this section. I think more detail on the purpose of "question tests and deployed versions" is needed here or somewhere in the authoring guide.)
 
 It is probably sensible to add question tests.  From the question preview window, click on `Question tests & deployed versions` link in the top right of the page.
 
@@ -183,13 +185,13 @@ The marks should all be "0" and the answer notes as follows.
 
 When you run the tests you can also look at the feedback to confirm the system is giving the kind of feedback you want for these types of mistake.
 
-###Stage 4: Random question###
+###Stage 4: Random question### (this is up to you but I would not personally start randomising things like this, I would have a chapter on randomising. This adds a layer of complexity to the multi-part question which I don't think is necessary. You are already adding complexity by using variables without adding a lot of detail as to why or the advantage of doing so. If you want to include randomisation here, I would write a paragraph explaining why we used variables in the first place.)
 
 Next we can add a randomly generated polynomial to the question.  Because we used variable names throughout the question from the start, this should be a simple matter of redefining the value of `p` in the question variables as follows.
 
     p : (2+rand(3))*x^3+(2+rand(3))*x^2+(2+rand(3))*x;
 
-You will need to add a non-empty question note to enable grouping of random versions.  E.g. the following string will suffice.
+You will need to add a non-empty question note to enable grouping of random versions.(I would specify where more clearly)  E.g. the following string will suffice.
 
     {@p@}
 
